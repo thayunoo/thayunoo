@@ -52,20 +52,23 @@ thay = {
 ---
 
 ### 📊 Predição de Inadimplência em Crédito P2P
-> TCC · MBA Data Science & Analytics — USP/ESALQ *(em andamento)*
+> TCC · MBA Data Science & Analytics · USP/ESALQ *(aprovado ✅)*
 
 ```python
-models = ["Regressão Logística", "Random Forest", "XGBoost"]
-metrics = ["AUC-ROC", "KS Statistic", "Gini"]
-dataset = "dados históricos de crédito P2P (2007–2018)"
+models    = ["Regressão Logística", "Random Forest"]
+dataset   = "LendingClub, crédito P2P (2007 a 2018)"
+validacao = "out-of-time: treino até 2016, teste em 2017 e 2018"
 
-# spoiler: o XGBoost não decepcionou
-best_model = max(models, key=lambda m: performance[m])
+auc_roc = {"Regressão Logística": 0.6911, "Random Forest": 0.6735}
+# teste de DeLong: p < 0.0001
+
+# spoiler: o modelo simples venceu 🏆
 ```
 
-Stack: Python · Scikit-learn · Pandas · Matplotlib · Seaborn  
-Técnicas: Feature Engineering · Validação cruzada estratificada · Análise comparativa de modelos
+Com dados bem tratados e validação temporal, a Regressão Logística superou o Random Forest em todas as métricas avaliadas e ainda manteve a interpretabilidade que ambientes regulados exigem. [Ver projeto →](https://github.com/thayunoo/comparacao-de-modelos-na-predicao-de-inadimplencia-em-credito-)
 
+Stack: Python · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn  
+Técnicas: Validação out-of-time · Controle de data leakage · Ponderação de classes · Teste de DeLong
 ---
 
 ### 💊 FarmacoGame — Jogo Sério sobre Uso Consciente de Medicamentos
